@@ -3,10 +3,10 @@ FROM debian
 RUN apt update
 
 # Services
-RUN apt install -y apache2 php libapache2-mod-php
+RUN apt install -y apache2 php libapache2-mod-php php-mysql
 
 # Outils cyber
-RUN apt install -y iproute2 curl iputils-ping
+RUN apt install -y iproute2 curl iputils-ping netcat ssh mariadb-client
 
 RUN apt clean 
 

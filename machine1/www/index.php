@@ -1,2 +1,0 @@
-coucou
-<?php phpinfo(); ?>
