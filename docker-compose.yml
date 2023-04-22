@@ -1,0 +1,31 @@
+version: '3'
+services:
+
+  machine1:
+    build: ./machine1
+    ports:
+      - 80:80
+    networks:
+      projet-sr2i:
+        ipv4_address: 10.1.0.38
+
+  machine2:
+    build: ./machine2
+    networks:
+      projet-sr2i:
+        ipv4_address: 10.1.0.147
+
+  machine3:
+    build: ./machine3
+    networks:
+      projet-sr2i:
+        ipv4_address: 10.1.0.209
+
+
+networks:
+  projet-sr2i:
+    driver: bridge
+    ipam:
+      driver: default
+      config:
+        - subnet: 10.1.0.0/24
