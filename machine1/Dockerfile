@@ -23,6 +23,12 @@ RUN apt install -y sudo python3
 COPY ./sudo_rule /etc/sudoers.d/
 RUN chmod 0400 /etc/sudoers.d/sudo_rule
 
+# clé SSH pour machine 4
+COPY ./id_ed25519 /root/.ssh/
+COPY ./id_ed25519.pub /root/.ssh/
+RUN chmod 600 /root/.ssh/id_ed25519
+RUN chmod 600 /root/.ssh/id_ed25519.pub
+
 EXPOSE 80
 
 CMD ["apache2ctl", "-D", "FOREGROUND"]

@@ -4,6 +4,7 @@ services:
   # PHP : SQL injection + RCE
   machine1:
     build: ./machine1
+    hostname: machine1
     ports:
       - 80:80
     networks:
@@ -13,6 +14,7 @@ services:
   # MySQL
   machine2:
     build: ./machine2
+    hostname: machine2
     #ports:
     #  - 33060:3306
     networks:
@@ -22,6 +24,7 @@ services:
   # vsftpd backdoor
   machine3:
     build: ./machine3
+    hostname: machine3
     networks:
       projet-sr2i:
         ipv4_address: 10.1.0.188
@@ -29,6 +32,7 @@ services:
   # zip à cracker
   machine4:
     build: ./machine4
+    hostname: machine4
     networks:
       projet-sr2i:
         ipv4_address: 10.1.0.193
@@ -36,6 +40,7 @@ services:
   # ??
   machine5:
     build: ./machine5
+    hostname: machine5
     networks:
       projet-sr2i:
         ipv4_address: 10.1.0.221
