@@ -30,10 +30,9 @@ mdp : tatatoto23401
 
 # ToDo
 
-- Injection SQL pour se logger sur la première interface machine 1
-- Initialiser le docker mysql avec des données (dont le flag)
-- setup machine 2 : backdoor vsftpd
-- privilege escalation par sudo mal config sur machine 1
-- ajouter clé ssh générée sur machine1 (user root) et authorized_keys sur machine4
+- machine 1 : formulaire de login avec faille injection SQL
+- machine 1 : une fois connecté, accès à la RCE
+- machine 2 : remplir la bdd (user/mdp)
+- machine 3 : backdoor vsftpd + dossier ftp public (2 challenges)
 - machine 4 : zip à cracker avec flag dedans
-- machine 5 : juste se ssh ? ptet ajouter un shell bash restreint avec shell escape ?
+- machine 5 : juste se ssh ? ptet ajouter un shell bash restreint avec jail escape ?
