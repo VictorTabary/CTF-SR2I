@@ -13,8 +13,6 @@ $username = "root";
 $password = "zeajkeazelkEZJLEA";
 
 if (isset($_GET["username"]) && isset($_GET["password"])) {
-  echo "login sql<br/>"; // debug
-
   $servername = "10.1.0.147:3306";
   $username = "root";
   $password = "zeajkeazelkEZJLEA";
@@ -32,7 +30,12 @@ if (isset($_GET["username"]) && isset($_GET["password"])) {
   //var_dump($result);echo "<br/>"; // debug
 
   if ($conn->error)
+  {
     var_dump($conn->error);
+    echo "<br/>";
+    var_dump($sql);
+  }
+    
   else {
     if ($result->num_rows > 0) {
       $row = $result->fetch_assoc();
@@ -40,6 +43,7 @@ if (isset($_GET["username"]) && isset($_GET["password"])) {
       $_SESSION['username'] = $row['username'];
     } else {
       $failed_login = true;
+      
     }
   }
   $conn->close();
@@ -60,26 +64,27 @@ if (isset($_SESSION['logged']) && $_SESSION['logged'] == true) {
     <h1>Ping</h1>
     <h3>Bienvenue,
       <?php echo $_SESSION['username']; ?> !
-      <h3 /><br />
-      <a href="?logout">Déconnexion</a><br />
+    </h3><br />
+
+    <?php
+    if ($failed_login) {
+      ?><b>Mauvais user/mot de passe.</b>
       <?php
-      if ($failed_login) {
-        ?><b>Mauvais user/mot de passe.</b>
-        <?php
+    }
+    ?>
+    <form method="GET" action="">
+      <input type="text" name="ip" placeholder="127.0.0.1">
+      <input type="submit"><br/>
+      <a href="?logout">Déconnexion</a><br/>
+    </form>
+    <pre>
+      <?php
+      if (isset($_GET["ip"]) && !empty($_GET["ip"])) {
+        $response = shell_exec("ping -c 3 " . $_GET["ip"]);
+        echo $response;
       }
       ?>
-      <form method="GET" action="">
-        <input type="text" name="ip" placeholder="127.0.0.1">
-        <input type="submit">
-      </form>
-      <pre>
-  <?php
-  if (isset($_GET["ip"]) && !empty($_GET["ip"])) {
-    $response = shell_exec("ping -c 3 " . $_GET["ip"]);
-    echo $response;
-  }
-  ?>
-  </pre>
+      </pre>
   </body>
 
   </html>
