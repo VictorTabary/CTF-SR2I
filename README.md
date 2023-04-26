@@ -12,6 +12,10 @@ mdp : tatatoto23401
 
 `docker-compose up --build -d`
 
+* Rebuild juste une machine
+  
+`docker-compose up -d --no-deps --build machine1`
+
 * Stop & delete
 
 `docker-compose down -t 0`
@@ -22,7 +26,7 @@ mdp : tatatoto23401
 
 * Obtenir un shell
 
-`docker exec -it projet-sr2i_machine1_1 bash`
+`docker compose exec -it machine1 bash`
 
 * Misc
 
