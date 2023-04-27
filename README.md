@@ -34,9 +34,10 @@ mdp : tatatoto23401
 
 # ToDo
 
-- machine 1 : formulaire de login avec faille injection SQL
-- machine 1 : une fois connecté, accès à la RCE
-- machine 2 : remplir la bdd (user/mdp)
+- machine 1 : rainbow table
 - machine 3 : backdoor vsftpd + dossier ftp public (2 challenges)
 - machine 4 : zip à cracker avec flag dedans
 - machine 5 : juste se ssh ? ptet ajouter un shell bash restreint avec jail escape ?
+
+- toutes les machines: .bash_history
+- toutes les machines: figer tous les fichiers des challenges

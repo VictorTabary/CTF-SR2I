@@ -8,10 +8,6 @@ if (isset($_GET['logout'])) {
 
 $failed_login = false;
 
-$servername = "10.1.0.147:3306";
-$username = "root";
-$password = "zeajkeazelkEZJLEA";
-
 if (isset($_GET["username"]) && isset($_GET["password"])) {
   $servername = "10.1.0.147:3306";
   $username = "root";
