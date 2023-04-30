@@ -34,7 +34,7 @@ mdp : tatatoto23401
 
 # ToDo
 
-- machine 3 : backdoor vsftpd + dossier ftp public (2 challenges)
+- machine 3 : dossier ftp public
 - machine 4 : zip à cracker avec flag dedans
 - machine 5 : juste se ssh ? ptet ajouter un shell bash restreint avec jail escape ? (Pyjail?)
 
