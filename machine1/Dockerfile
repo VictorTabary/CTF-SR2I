@@ -15,13 +15,17 @@ RUN sed -i -e 's/display_startup_errors = Off/display_startup_errors = On/g' /et
 # Sudo rules
 RUN apt install -y sudo python3
 COPY ./sudo_rule /etc/sudoers.d/
-RUN chmod 0400 /etc/sudoers.d/sudo_rule
+RUN chmod 400 /etc/sudoers.d/sudo_rule
 
 # clé SSH pour machine 4
 COPY ./id_ed25519 /root/.ssh/
 COPY ./id_ed25519.pub /root/.ssh/
 RUN chmod 600 /root/.ssh/id_ed25519
 RUN chmod 600 /root/.ssh/id_ed25519.pub
+
+# hash accessible en root pour la machine 5
+COPY ./pense_bete.txt /root
+RUN chmod 400 /root/pense_bete.txt
 
 # Copie du home web
 RUN rm -rf /var/www/html/*
