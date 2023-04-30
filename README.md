@@ -35,7 +35,9 @@ mdp : tatatoto23401
 # ToDo
 
 - machine 4 : zip à cracker avec flag dedans
-- machine 5 : juste se ssh ? ptet ajouter un shell bash restreint avec jail escape ? (Pyjail?)
+- machine 5 : ptet ajouter un shell bash restreint avec jail escape ? (Pyjail?)
 
 - toutes les machines: .bash_history
 - toutes les machines: figer tous les fichiers des challenges
+
+- faire la page de validation des flags
