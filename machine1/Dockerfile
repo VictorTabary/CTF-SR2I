@@ -4,7 +4,7 @@ FROM debian:latest
 RUN apt update && apt install -y apache2 php libapache2-mod-php php-mysql
 
 # Outils cyber
-RUN apt install -y iproute2 curl iputils-ping netcat ssh mariadb-client
+RUN apt install -y iproute2 curl iputils-ping netcat ssh mariadb-client nmap
 
 RUN apt clean 
 
