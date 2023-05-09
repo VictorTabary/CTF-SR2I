@@ -6,7 +6,8 @@ mettre " pour avoir une erreur
 * Solution :
     Mettre en username : " OR 1=1 OR ""="
 
-Mais on est login en tant que "admin", pas l'autre user !
+Mais on est login en tant que "admin", pas l'autre `docker compose exec -it machine1 bash`
+user !
 
 * Indice 1 :
     Injection SQL
@@ -102,3 +103,8 @@ cat ~/pense_bete.txt
     hashcat -m0 -O flag /usr/share/wordlists/rockyou.txt
 
     (hashcat -m0 --show flag)
+
+# Zip Bruteforce:
+
+zip2john flag.zip > hash.txt
+john --wordlist=rockyou.txt hash.txt 
