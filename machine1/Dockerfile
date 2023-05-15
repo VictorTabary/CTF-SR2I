@@ -1,7 +1,7 @@
 FROM debian:latest
 
 # Services
-RUN apt update && apt install -y apache2 php libapache2-mod-php php-mysql ftp
+RUN apt update && apt install -y apache2 php libapache2-mod-php php-mysql ftp openssh-server
 
 # Outils cyber
 RUN apt install -y iproute2 curl iputils-ping netcat ssh mariadb-client nmap
@@ -31,6 +31,10 @@ RUN chmod 400 /root/pense_bete.txt
 RUN rm -rf /var/www/html/*
 COPY www /var/www/html
 
+# Autoriser la connexion via le mdp www-data
+RUN echo "www-data:Machine1_pwd" | chpasswd
+
 EXPOSE 80
+EXPOSE 22
 
 CMD ["apache2ctl", "-D", "FOREGROUND"]

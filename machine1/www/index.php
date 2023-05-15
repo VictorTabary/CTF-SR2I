@@ -60,7 +60,9 @@ if (isset($_SESSION['logged']) && $_SESSION['logged'] == true) {
     <h1>Ping</h1>
     <h3>Bienvenue,
       <?php echo $_SESSION['username']; ?> !
-    </h3><br />
+    </h3>
+    <p>Le second flag est: FLAG{5ec0nd_fl4g} !</p>
+    <br />
 
     <?php
     if ($failed_login) {
@@ -102,6 +104,7 @@ if (isset($_SESSION['logged']) && $_SESSION['logged'] == true) {
       <input type="password" name="password"> <br />
       <input type="submit">
     </form>
+    <p>Le premier flag est: FLAG{f1rst_fl4g} !</p>
   </body>
 
   </html>
