@@ -11,6 +11,8 @@ services:
     networks:
       projet-sr2i:
         ipv4_address: 10.1.0.38
+    cap_add:
+      - LINUX_IMMUTABLE
 
   # MySQL
   machine2:

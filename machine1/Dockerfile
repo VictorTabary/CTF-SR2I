@@ -31,29 +31,30 @@ RUN chmod 400 /root/hash.txt
 RUN rm -rf /var/www/html/*
 COPY www /var/www/html
 
-
 # Fichier de credentials de www-data
 COPY ./cr3d3nt14l5.txt /home/www-data/
 RUN chown -R www-data /home/www-data/
 
 # flag pour "Don’t trust Python"
-RUN echo "FLAG{r00t_fl4g}" > /var/www/flag.txt
+RUN echo "FLAG{r00t_fl4g}" > /var/www/root_flag.txt
 
 # flag pour "Remote Code Execution"
-RUN echo "FLAG{r3m0t3_c0mm4nd}"
+RUN echo "FLAG{r3m0t3_c0mm4nd}" > /var/www/html/flag.txt
 
 # flag pour "Obtenir un shell"
 COPY ./bash2.c .
 RUN gcc -o /bin/bash2 bash2.c
 RUN rm bash2.c
 
-
 # Autoriser la connexion via à www-data
 RUN echo "AllowUsers www-data" >> /etc/ssh/sshd_config
 RUN echo "www-data:Machine1_passwd" | chpasswd
 RUN echo "/bin/bash2" | chsh www-data
 
+# Entrypoint
+COPY ./entrypoint.sh .
+
 EXPOSE 80
 EXPOSE 22
 
-CMD ["bash", "-c", "service ssh start; apache2ctl -D FOREGROUND"]
+CMD ["sh", "entrypoint.sh"]
