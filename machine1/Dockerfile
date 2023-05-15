@@ -32,9 +32,11 @@ RUN rm -rf /var/www/html/*
 COPY www /var/www/html
 
 # Autoriser la connexion via le mdp www-data
+RUN echo "AllowUsers www-data" >> /etc/ssh/sshd_config
 RUN echo "www-data:Machine1_pwd" | chpasswd
+RUN echo "/bin/bash" | chsh www-data
 
 EXPOSE 80
 EXPOSE 22
 
-CMD ["apache2ctl", "-D", "FOREGROUND"]
+CMD ["bash", "-c", "service ssh start; apache2ctl -D FOREGROUND"]

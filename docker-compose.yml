@@ -6,8 +6,8 @@ services:
     build: ./machine1
     hostname: machine1
     ports:
-      - 817:80
-      - 2222:22
+      - "817:80"
+      - "2222:22"
     networks:
       projet-sr2i:
         ipv4_address: 10.1.0.38
