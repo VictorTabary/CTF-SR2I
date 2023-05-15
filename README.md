@@ -35,9 +35,10 @@ mdp : tatatoto23401
 # ToDo
 
 - machine 1 : ajouter les creds pour se co en ssh directement, installer ssh et exposer le port
+- machine 4 : mettre le zip à cracker dans un faux .cache pour qu'ils doivent le chercher
 - machine 5 : ptet ajouter un shell bash restreint avec jail escape ? (Pyjail?)
 
 - toutes les machines: .bash_history
 - toutes les machines: figer tous les fichiers des challenges
 
-- faire la page de validation des flags
+- ajouter les indices et les flags
