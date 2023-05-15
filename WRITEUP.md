@@ -108,3 +108,5 @@ cat ~/pense_bete.txt
 
 zip2john flag.zip > hash.txt
 john --wordlist=rockyou.txt hash.txt 
+
+password: sweatheart
