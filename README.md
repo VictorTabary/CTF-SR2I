@@ -34,7 +34,6 @@ mdp : tatatoto23401
 
 # ToDo
 
-- machine 1 : changer le format du pense-bête par rapport à la description du challenge
 - machine 4 : mettre le zip à cracker dans un faux .cache pour qu'ils doivent le chercher
 - machine 5 : mettre une pyjail quand on se connecte en ssh
                 il faut afficher un premier flag dès la connexion

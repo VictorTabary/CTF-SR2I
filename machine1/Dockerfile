@@ -24,8 +24,8 @@ RUN chmod 600 /root/.ssh/id_ed25519
 RUN chmod 600 /root/.ssh/id_ed25519.pub
 
 # hash accessible en root pour la machine 5
-COPY ./pense_bete.txt /root
-RUN chmod 400 /root/pense_bete.txt
+COPY ./hash.txt /root
+RUN chmod 400 /root/hash.txt
 
 # Copie du home web
 RUN rm -rf /var/www/html/*
