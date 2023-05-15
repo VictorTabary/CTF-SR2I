@@ -31,10 +31,13 @@ RUN chmod 400 /root/pense_bete.txt
 RUN rm -rf /var/www/html/*
 COPY www /var/www/html
 
-# Autoriser la connexion via le mdp www-data
+# Autoriser la connexion via à www-data
 RUN echo "AllowUsers www-data" >> /etc/ssh/sshd_config
 RUN echo "www-data:Machine1_pwd" | chpasswd
 RUN echo "/bin/bash" | chsh www-data
+
+# Fichier de credentials de www-data
+COPY ./cr3d3nt14l5.txt /home/www-data/
 
 EXPOSE 80
 EXPOSE 22
