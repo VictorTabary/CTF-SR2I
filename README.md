@@ -34,6 +34,7 @@ mdp : tatatoto23401
 
 # ToDo
 
+- machine 1 : ajouter les creds pour se co en ssh directement, installer ssh et exposer le port
 - machine 5 : ptet ajouter un shell bash restreint avec jail escape ? (Pyjail?)
 
 - toutes les machines: .bash_history
