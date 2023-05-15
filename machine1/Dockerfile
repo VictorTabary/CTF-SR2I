@@ -14,32 +14,9 @@ RUN sed -i -e 's/display_startup_errors = Off/display_startup_errors = On/g' /et
 
 # Sudo rules
 RUN apt install -y sudo python3
-COPY ./sudo_rule /etc/sudoers.d/
-RUN chmod 400 /etc/sudoers.d/sudo_rule
 
-# clé SSH pour machine 4
-COPY ./id_ed25519 /root/.ssh/
-COPY ./id_ed25519.pub /root/.ssh/
-RUN chmod 600 /root/.ssh/id_ed25519
-RUN chmod 600 /root/.ssh/id_ed25519.pub
-
-# hash accessible en root pour la machine 5
-COPY ./hash.txt /root
-RUN chmod 400 /root/hash.txt
-
-# Copie du home web
+# Nettoyage du home web
 RUN rm -rf /var/www/html/*
-COPY www /var/www/html
-
-# Fichier de credentials de www-data
-COPY ./cr3d3nt14l5.txt /home/www-data/
-RUN chown -R www-data /home/www-data/
-
-# flag pour "Don’t trust Python"
-RUN echo "FLAG{r00t_fl4g}" > /var/www/root_flag.txt
-
-# flag pour "Remote Code Execution"
-RUN echo "FLAG{r3m0t3_c0mm4nd}" > /var/www/html/flag.txt
 
 # flag pour "Obtenir un shell"
 COPY ./bash2.c .
@@ -51,10 +28,7 @@ RUN echo "AllowUsers www-data" >> /etc/ssh/sshd_config
 RUN echo "www-data:Machine1_passwd" | chpasswd
 RUN echo "/bin/bash2" | chsh www-data
 
-# Entrypoint
-COPY ./entrypoint.sh .
-
 EXPOSE 80
 EXPOSE 22
 
-CMD ["sh", "entrypoint.sh"]
+CMD ["bash", "-c", "service ssh start; apache2ctl -D FOREGROUND"]
