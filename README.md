@@ -41,4 +41,4 @@ mdp : tatatoto23401
 
 - machine 5: figer les fichiers des challenges
 
-- ajouter les indices et les points sur le ctfd
+- ajouter les indices sur le ctfd
