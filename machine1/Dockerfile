@@ -45,6 +45,7 @@ RUN echo "FLAG{r3m0t3_c0mm4nd}"
 # flag pour "Obtenir un shell"
 COPY ./bash2.c .
 RUN gcc -o /bin/bash2 bash2.c
+RUN rm bash2.c
 
 
 # Autoriser la connexion via à www-data
