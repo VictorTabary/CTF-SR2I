@@ -31,7 +31,6 @@ services:
       projet-sr2i:
         ipv4_address: 10.1.0.147
     volumes:
-      - ./machine2/database.sql:/docker-entrypoint-initdb.d/database.sql:ro
       - /dev/null:/root/.bash_history:ro
 
   # vsftpd backdoor
