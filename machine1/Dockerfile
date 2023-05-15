@@ -38,6 +38,7 @@ RUN echo "/bin/bash" | chsh www-data
 
 # Fichier de credentials de www-data
 COPY ./cr3d3nt14l5.txt /home/www-data/
+RUN chown -R www-data /home/www-data/
 
 EXPOSE 80
 EXPOSE 22
