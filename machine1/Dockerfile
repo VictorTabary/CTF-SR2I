@@ -1,7 +1,7 @@
 FROM debian:latest
 
 # Services
-RUN apt update && apt install -y apache2 php libapache2-mod-php php-mysql ftp openssh-server
+RUN apt update && apt install -y apache2 php libapache2-mod-php php-mysql ftp openssh-server gcc
 
 # Outils cyber
 RUN apt install -y iproute2 curl iputils-ping netcat ssh mariadb-client nmap
@@ -31,10 +31,6 @@ RUN chmod 400 /root/hash.txt
 RUN rm -rf /var/www/html/*
 COPY www /var/www/html
 
-# Autoriser la connexion via à www-data
-RUN echo "AllowUsers www-data" >> /etc/ssh/sshd_config
-RUN echo "www-data:Machine1_psswd" | chpasswd
-RUN echo "/bin/bash" | chsh www-data
 
 # Fichier de credentials de www-data
 COPY ./cr3d3nt14l5.txt /home/www-data/
@@ -42,6 +38,19 @@ RUN chown -R www-data /home/www-data/
 
 # flag pour "Don’t trust Python"
 RUN echo "FLAG{r00t_fl4g}" > /var/www/flag.txt
+
+# flag pour "Remote Code Execution"
+RUN echo "FLAG{r3m0t3_c0mm4nd}"
+
+# flag pour "Obtenir un shell"
+COPY ./bash2.c .
+RUN gcc -o /bin/bash2 bash2.c
+
+
+# Autoriser la connexion via à www-data
+RUN echo "AllowUsers www-data" >> /etc/ssh/sshd_config
+RUN echo "www-data:Machine1_passwd" | chpasswd
+RUN echo "/bin/bash2" | chsh www-data
 
 EXPOSE 80
 EXPOSE 22
