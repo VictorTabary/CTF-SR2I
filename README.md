@@ -35,10 +35,14 @@ mdp : tatatoto23401
 # ToDo
 
 - machine 1 : ajouter les creds pour se co en ssh directement, installer ssh et exposer le port
+- machine 1 : changer le format du pense-bête par rapport à la description du challenge
 - machine 4 : mettre le zip à cracker dans un faux .cache pour qu'ils doivent le chercher
-- machine 5 : ptet ajouter un shell bash restreint avec jail escape ? (Pyjail?)
+- machine 5 : mettre une pyjail quand on se connecte en ssh
+                il faut afficher un premier flag dès la connexion
+                la jail doit bloquer les mots "import" et "open" uniquement
+                il faut mettre un autre flag dans un fichier flag.txt
 
 - toutes les machines: .bash_history
 - toutes les machines: figer tous les fichiers des challenges
 
-- ajouter les indices et les flags
+- ajouter les indices et les flags sur le ctfd et les machines
