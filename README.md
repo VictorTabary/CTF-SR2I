@@ -39,7 +39,6 @@ mdp : tatatoto23401
                 la jail doit bloquer les mots "import" et "open" uniquement
                 il faut mettre un autre flag dans un fichier flag.txt
 
-- toutes les machines: .bash_history
-- toutes les machines: figer tous les fichiers des challenges
+- machine 5: figer les fichiers des challenges
 
-- ajouter les indices et les flags sur le ctfd et les machines
+- ajouter les indices et les points sur le ctfd

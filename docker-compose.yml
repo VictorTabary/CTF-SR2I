@@ -30,6 +30,9 @@ services:
     networks:
       projet-sr2i:
         ipv4_address: 10.1.0.147
+    volumes:
+      - ./machine2/database.sql:/docker-entrypoint-initdb.d/database.sql:ro
+      - /dev/null:/root/.bash_history:ro
 
   # vsftpd backdoor
   machine3:
@@ -38,6 +41,10 @@ services:
     networks:
       projet-sr2i:
         ipv4_address: 10.1.0.188
+    volumes:
+      - ./machine3/flag.txt:/var/ftp/pub/flag.txt:ro
+      - ./machine3/flag2.txt:/root/flag2.txt:ro
+      - /dev/null:/root/.bash_history:ro
 
   # zip à cracker
   machine4:
@@ -46,6 +53,11 @@ services:
     networks:
       projet-sr2i:
         ipv4_address: 10.1.0.193
+    volumes:
+      - ./machine4/id_ed25519.pub:/root/.ssh/authorized_keys:ro
+      - ./machine4/documents_confidentiels.zip:/root/.cache/documents_confidentiels.zip:ro
+      - ./machine4/flag.txt:/root/flag.txt:ro
+      - /dev/null:/root/.bash_history:ro
 
   # ??
   machine5:
@@ -54,6 +66,8 @@ services:
     networks:
       projet-sr2i:
         ipv4_address: 10.1.0.221
+    volumes:
+      - /dev/null:/root/.bash_history:ro
 
 
 networks:
