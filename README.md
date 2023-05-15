@@ -34,7 +34,6 @@ mdp : tatatoto23401
 
 # ToDo
 
-- machine 4 : mettre le zip à cracker dans un faux .cache pour qu'ils doivent le chercher
 - machine 5 : mettre une pyjail quand on se connecte en ssh
                 il faut afficher un premier flag dès la connexion
                 la jail doit bloquer les mots "import" et "open" uniquement
