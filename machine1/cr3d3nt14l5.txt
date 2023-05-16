@@ -1,0 +1,2 @@
+Mot de passe www-data: Machine1_passwd
+Le port SSH est le 2222

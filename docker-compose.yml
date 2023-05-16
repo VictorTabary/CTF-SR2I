@@ -6,10 +6,20 @@ services:
     build: ./machine1
     hostname: machine1
     ports:
-      - 80:80
+      - "817:80"
+      - "2222:22"
     networks:
       projet-sr2i:
         ipv4_address: 10.1.0.38
+    volumes:
+      - ./machine1/hash.txt:/root/hash.txt:ro
+      - ./machine1/cr3d3nt14l5.txt:/home/www-data/cr3d3nt14l5.txt:ro
+      - ./machine1/root_flag.txt:/var/www/root_flag.txt:ro
+      - ./machine1/id_ed25519:/root/.ssh/id_ed25519:ro
+      - ./machine1/id_ed25519.pub:/root/.ssh/id_ed25519.pub:ro
+      - ./machine1/www:/var/www/html:ro
+      - /dev/null:/root/.bash_history:ro
+      - ./machine1/sudo_rule:/etc/sudoers.d/sudo_rule:ro
 
   # MySQL
   machine2:
@@ -20,6 +30,8 @@ services:
     networks:
       projet-sr2i:
         ipv4_address: 10.1.0.147
+    volumes:
+      - /dev/null:/root/.bash_history:ro
 
   # vsftpd backdoor
   machine3:
@@ -28,6 +40,10 @@ services:
     networks:
       projet-sr2i:
         ipv4_address: 10.1.0.188
+    volumes:
+      - ./machine3/flag.txt:/var/ftp/pub/flag.txt:ro
+      - ./machine3/flag2.txt:/root/flag2.txt:ro
+      - /dev/null:/root/.bash_history:ro
 
   # zip à cracker
   machine4:
@@ -36,6 +52,11 @@ services:
     networks:
       projet-sr2i:
         ipv4_address: 10.1.0.193
+    volumes:
+      - ./machine4/id_ed25519.pub:/root/.ssh/authorized_keys:ro
+      - ./machine4/documents_confidentiels.zip:/root/.cache/documents_confidentiels.zip:ro
+      - ./machine4/flag.txt:/root/flag.txt:ro
+      - /dev/null:/root/.bash_history:ro
 
   # ??
   machine5:
@@ -44,6 +65,8 @@ services:
     networks:
       projet-sr2i:
         ipv4_address: 10.1.0.221
+    volumes:
+      - /dev/null:/root/.bash_history:ro
 
 
 networks:

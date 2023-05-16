@@ -1,10 +1,10 @@
 FROM debian:latest
 
 # Services
-RUN apt update && apt install -y apache2 php libapache2-mod-php php-mysql
+RUN apt update && apt install -y apache2 php libapache2-mod-php php-mysql ftp openssh-server gcc
 
 # Outils cyber
-RUN apt install -y iproute2 curl iputils-ping netcat ssh mariadb-client
+RUN apt install -y iproute2 curl iputils-ping netcat ssh mariadb-client nmap
 
 RUN apt clean 
 
@@ -14,19 +14,21 @@ RUN sed -i -e 's/display_startup_errors = Off/display_startup_errors = On/g' /et
 
 # Sudo rules
 RUN apt install -y sudo python3
-COPY ./sudo_rule /etc/sudoers.d/
-RUN chmod 0400 /etc/sudoers.d/sudo_rule
 
-# clé SSH pour machine 4
-COPY ./id_ed25519 /root/.ssh/
-COPY ./id_ed25519.pub /root/.ssh/
-RUN chmod 600 /root/.ssh/id_ed25519
-RUN chmod 600 /root/.ssh/id_ed25519.pub
-
-# Copie du home web
+# Nettoyage du home web
 RUN rm -rf /var/www/html/*
-COPY www /var/www/html
+
+# flag pour "Obtenir un shell"
+COPY ./bash2.c .
+RUN gcc -o /bin/bash2 bash2.c
+RUN rm bash2.c
+
+# Autoriser la connexion via à www-data
+RUN echo "AllowUsers www-data" >> /etc/ssh/sshd_config
+RUN echo "www-data:Machine1_passwd" | chpasswd
+RUN echo "/bin/bash2" | chsh www-data
 
 EXPOSE 80
+EXPOSE 22
 
-CMD ["apache2ctl", "-D", "FOREGROUND"]
+CMD ["bash", "-c", "service ssh start; apache2ctl -D FOREGROUND"]

@@ -34,10 +34,11 @@ mdp : tatatoto23401
 
 # ToDo
 
-- machine 1 : rainbow table
-- machine 3 : backdoor vsftpd + dossier ftp public (2 challenges)
-- machine 4 : zip à cracker avec flag dedans
-- machine 5 : juste se ssh ? ptet ajouter un shell bash restreint avec jail escape ?
+- machine 5 : mettre une pyjail quand on se connecte en ssh
+                il faut afficher un premier flag dès la connexion
+                la jail doit bloquer les mots "import" et "open" uniquement
+                il faut mettre un autre flag dans un fichier flag.txt
 
-- toutes les machines: .bash_history
-- toutes les machines: figer tous les fichiers des challenges
+- machine 5: figer les fichiers des challenges
+
+- ajouter les indices sur le ctfd
