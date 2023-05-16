@@ -6,8 +6,8 @@ RUN echo "PermitRootLogin yes" >> /etc/ssh/sshd_config
 RUN echo "root:ashira55" | chpasswd
 
 COPY main.c /root/main.c
-RUN gcc -o /bin/main /root/main.c
+RUN gcc -o /bin/custom_shell /root/main.c
 RUN rm /root/main.c
-RUN sed -i 's/\/bin\/bash/\/bin\/main/g' /etc/passwd
+RUN sed -i 's/\/bin\/bash/\/bin\/custom_shell/g' /etc/passwd
 
 CMD ["bash","-c","service ssh start;sleep infinity"]
