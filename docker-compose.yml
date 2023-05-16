@@ -41,7 +41,7 @@ services:
       projet-sr2i:
         ipv4_address: 10.1.0.188
     volumes:
-      - ./machine3/flag.txt:/var/ftp/pub/flag.txt:ro
+      - ./machine3/flag.txt:/var/ftp/pub/FLAG{an0nym0us_f1l3}:ro
       - ./machine3/flag2.txt:/root/flag2.txt:ro
       - /dev/null:/root/.bash_history:ro
 
