@@ -27,9 +27,9 @@ if (isset($_GET["username"]) && isset($_GET["password"])) {
 
   if ($conn->error)
   {
-    var_dump($conn->error);
-    echo "<br/>";
-    var_dump($sql);
+    echo "Error : <br/>".$conn->error;
+    echo "<br/><br/>";
+    echo "Request : <br/>".$sql;
   }
     
   else {
