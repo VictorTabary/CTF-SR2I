@@ -1,6 +1,6 @@
 #include <stdlib.h>
 
 int main() {
-    system("python3 /home/pyjail.py");
+    system("python3 /root/pyjail.py");
     return 0;
 }

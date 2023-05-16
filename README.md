@@ -34,11 +34,4 @@ mdp : tatatoto23401
 
 # ToDo
 
-- machine 5 : mettre une pyjail quand on se connecte en ssh
-                il faut afficher un premier flag dès la connexion
-                la jail doit bloquer les mots "import" et "open" uniquement
-                il faut mettre un autre flag dans un fichier flag.txt
-
-- machine 5: figer les fichiers des challenges
-
-- ajouter les indices sur le ctfd
+-- ajouter les indices sur le ctfd

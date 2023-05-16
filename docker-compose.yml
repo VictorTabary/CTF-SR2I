@@ -67,6 +67,8 @@ services:
         ipv4_address: 10.1.0.221
     volumes:
       - /dev/null:/root/.bash_history:ro
+      - ./machine5/flag.txt:/root/flag.txt:ro
+      - ./machine5/pyjail.py:/root/pyjail.py:ro
 
 
 networks:
