@@ -57,6 +57,8 @@ services:
       - /dev/null:/root/.bash_history:ro
       - /home/victor/JohnTheRipper/run/zip2john:/bin/zip2john:ro
     read_only: true
+    tmpfs:
+      - /run/sshd
 
   # Pyjail
   machine5:
