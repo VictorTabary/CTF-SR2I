@@ -55,7 +55,8 @@ services:
       - ./machine4/documents_confidentiels.zip:/root/.cache/documents_confidentiels.zip:ro
       - ./machine4/flag.txt:/root/flag.txt:ro
       - /dev/null:/root/.bash_history:ro
-      - /home/toto/JohnTheRipper/run/zip2john:/bin/zip2john:ro
+      - ./machine4/zip2john:/bin/zip2john:ro
+    #  - /home/toto/JohnTheRipper/run/zip2john:/bin/zip2john:ro
     read_only: true
     tmpfs:
       - /run/sshd
