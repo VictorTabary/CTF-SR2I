@@ -15,11 +15,11 @@ services:
       - ./machine1/hash.txt:/root/hash.txt:ro
       - ./machine1/cr3d3nt14l5.txt:/home/www-data/cr3d3nt14l5.txt:ro
       - ./machine1/root_flag.txt:/var/www/root_flag.txt:ro
-      - ./machine1/id_ed25519:/root/.ssh/id_ed25519:ro
-      - ./machine1/id_ed25519.pub:/root/.ssh/id_ed25519.pub:ro
+      - ./machine1/.ssh:/root/.ssh:ro
       - ./machine1/www:/var/www/html:ro
       - /dev/null:/root/.bash_history:ro
-      - ./machine1/sudo_rule:/etc/sudoers.d/sudo_rule:ro
+      - ./machine1/sudoers.d:/etc/sudoers.d:ro
+      - ./machine1/sudoers:/etc/sudoers:ro
 
   # MySQL
   machine2:
