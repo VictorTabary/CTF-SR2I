@@ -35,3 +35,15 @@ mdp : tatatoto23401
 # ToDo
 
 -- ajouter les indices sur le ctfd
+
+# Identifiants
+
+## CTFd
+
+username: admin
+email: admin@ctf.sr2i
+password: Sr2iGoesBRRRR
+
+## ctf-sr2i
+
+toto : tatatoto23401
