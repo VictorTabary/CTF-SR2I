@@ -28,6 +28,8 @@ RUN echo "AllowUsers www-data" >> /etc/ssh/sshd_config
 RUN echo "www-data:Machine1_passwd" | chpasswd
 RUN echo "/bin/bash2" | chsh www-data
 
+RUN rm /usr/bin/passwd /usr/share/man/man1/passwd.1.gz /usr/share/man/man1/passwd.1ssl.gz /usr/share/man/man5/passwd.5.gz /usr/sbin/chpasswd /usr/share/man/man8/chpasswd.8.gz /usr/sbin/chgpasswd /usr/share/man/man8/chgpasswd.8.gz /usr/sbin/update-passwd /usr/share/man/man8/update-passwd.8.gz
+
 EXPOSE 80
 EXPOSE 22
 
