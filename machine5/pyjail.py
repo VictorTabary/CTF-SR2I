@@ -14,7 +14,8 @@ while True:
         print("Accès interdit au mot 'open'")
     else:
         try:
-            exec(code)
+            r = eval(code)
+            print(r)
         except Exception as e:
             print("Erreur :", e)
 
