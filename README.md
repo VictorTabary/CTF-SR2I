@@ -4,9 +4,6 @@ https://drive.google.com/drive/folders/1vbMd7U1586c3cIHTfk9uJbc9eR6By5c6
 
 137.194.13.87/24
 
-user : toto
-
-mdp : tatatoto23401
 
 * Run
 
@@ -32,18 +29,3 @@ mdp : tatatoto23401
 
 `mysql -u root -p'zeajkeazelkEZJLEA' -h 10.1.0.147 -P 3306`
 
-# ToDo
-
--- ajouter les indices sur le ctfd
-
-# Identifiants
-
-## CTFd
-
-username: admin
-email: admin@ctf.sr2i
-password: Sr2iGoesBRRRR
-
-## ctf-sr2i
-
-toto : tatatoto23401
