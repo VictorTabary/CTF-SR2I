@@ -1,4 +1,4 @@
-# Projet-SR2I
+# CTF SR2I
 
 * Run
 
