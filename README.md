@@ -1,10 +1,5 @@
 # Projet-SR2I
 
-https://drive.google.com/drive/folders/1vbMd7U1586c3cIHTfk9uJbc9eR6By5c6
-
-137.194.13.87/24
-
-
 * Run
 
 `docker-compose up --build -d`
